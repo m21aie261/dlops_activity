@@ -1,5 +1,8 @@
+# new branch
+
 import pandas as pd
 import matplotlib.pyplot as plt
+
 
 def load_data(file_path):
     """Load data from a CSV file."""
@@ -12,6 +15,7 @@ def load_data(file_path):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
+
 
 def analyze_data(data):
     """Perform basic data analysis."""
@@ -28,7 +32,7 @@ def analyze_data(data):
             plt.xlabel(col)
             plt.ylabel('Frequency')
             plt.show()
-        
+
         # Plot bar plot for the class label (string type)
         class_label_counts = data['Class'].value_counts()
         class_label_counts.plot(kind='bar')
@@ -37,10 +41,12 @@ def analyze_data(data):
         plt.ylabel('Count')
         plt.show()
 
+
 def main():
     file_path = input("Enter the path to the CSV file: ")
     data = load_data(file_path)
     analyze_data(data)
+
 
 if __name__ == "__main__":
     main()
