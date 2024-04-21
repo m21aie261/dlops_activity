@@ -8,6 +8,16 @@ def load_data(file_path):
     """Load data from a CSV file."""
     try:
         data = pd.read_excel(file_path)
+        print(data.columns)
+        print(data.shape)
+        print(data.head())
+
+        # Perform One-Hot Encoding
+        df_encoded = pd.get_dummies(data, columns=['Class'], prefix='')
+
+        # View the encoded DataFrame
+        print(df_encoded.head())
+
         return data
     except FileNotFoundError:
         print("File not found. Please provide a valid file path.")
@@ -43,7 +53,9 @@ def analyze_data(data):
 
 
 def main():
-    file_path = input("Enter the path to the CSV file: ")
+    # file_path = input("Enter the path to the CSV file: ")
+    # file_path = 'F:\\IITJ\\Sem V\\DLOPS\\dlops_github\\activity2\\dlops_activity\\DryBeanDataset\\Dry_Bean_Dataset.xslx'
+    file_path = 'F:\\IITJ\\Sem V\\DLOPS\\dlops_github\\activity2\\dlops_activity\\DryBeanDataset\\Dry_Bean_Dataset.xlsx'
     data = load_data(file_path)
     analyze_data(data)
 
