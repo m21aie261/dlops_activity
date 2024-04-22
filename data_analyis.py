@@ -13,10 +13,10 @@ def load_data(file_path):
         print(data.head())
 
         # Perform One-Hot Encoding
-        df_encoded = pd.get_dummies(data, columns=['Class'], prefix='')
+        df_encoded_values = pd.get_dummies(data, columns=['Class'], prefix='')
 
         # View the encoded DataFrame
-        print(df_encoded.head())
+        print(df_encoded_values.head())
 
         return data
     except FileNotFoundError:
